@@ -14,8 +14,10 @@ export class Clock {
         this._a += (this._m - m) * this._src.now();
         this._m = m;
     }
-
-    now() {
+    get time() {
         return this._m * this._src.now() + this._a;
+    }
+    set time(t) {
+        this._a = t - this._m * this._src.now();
     }
 }
